@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'badge_membership'
+    'badge_membership',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
