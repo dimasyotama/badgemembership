@@ -30,5 +30,20 @@ class ProfileViewSet(viewsets.ModelViewSet):
         queryset = self.queryset
         return queryset
     
-
+class GetBadgeViewSet(viewsets.ModelViewSet):
+    gettting_badge = BadgeName.objects.all().values_list("nama_badge", flat=True)
+    serializer_class = ProfileSerializer
+    def get_badge(self,request,pk=None):
+        queryset = self.gettting_badge
+        profile = Profile.objects.get(pk=pk)
+        if profile.freq_shop_user >= 200:
+            profile.badge_name.add(getting_badge[0])
+        elif profile.freq_shop_user >=300:
+            profile.badge_name.add(getting_badge[1])
+        elif profile.freq_shop_user >=400:
+            profile.badge_name.add(getting_badge[2])
+        elif profile.freq_shop_user >=500:
+            profile.badge_name.add(getting_badge[3])
+        else:
+            profile.badge_name.add(getting_badge[4])
 

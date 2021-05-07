@@ -1,5 +1,5 @@
 from django.urls import path
-from badge_membership.views import ProdukViewSet,ProfileViewSet
+from badge_membership.views import ProdukViewSet,ProfileViewSet,GetBadgeViewSet
 from django.conf.urls import url
 
 urlpatterns = [
@@ -9,6 +9,8 @@ urlpatterns = [
 
     #url untuk halaman profile
     url(r'^api/profile/$', ProfileViewSet.as_view({'get':'list'})),
+
+    url(r'^api/get_badge/(?P<pk>[0-9]+)/$', GetBadgeViewSet.as_view({'get':'get_badge'}))
 
 
 ]
